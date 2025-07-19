@@ -1,0 +1,366 @@
+# Simulation Runner Configuration for FernAssist
+
+# Simulation Runner Configuration
+simulation_runner:
+  ros__parameters:
+    # Scene Configuration
+    scene_mode: "kitchen"  # kitchen, bedroom, living_room, office, custom
+    scene_path: ""  # Custom scene path (if using custom mode)
+    enable_physics: true
+    physics_dt: 0.0166667  # 1/60 seconds
+    
+    # Robot Configuration
+    robots: ["turtlebot", "franka"]  # List of robots to spawn
+    enable_robot_control: true
+    
+    # Pipeline Configuration
+    enable_aac_input: true
+    enable_llm_processing: true
+    enable_ros_bridge: true
+    enable_object_detection: true
+    enable_feedback: true
+    
+    # Logging Configuration
+    enable_logging: true
+    log_directory: "demo/logs"
+    enable_screenshots: true
+    screenshot_interval: 5.0
+    enable_video_recording: false
+    
+    # Performance Configuration
+    max_simulation_time: 300.0
+    enable_performance_monitoring: true
+    
+    # Demo Configuration
+    demo_mode: false
+    auto_advance: false
+    demo_timeout: 60.0
+
+# Scene Configurations
+scenes:
+  kitchen:
+    ros__parameters:
+      name: "Kitchen Environment"
+      description: "Kitchen with appliances and furniture"
+      usd_path: "/Isaac/Environments/Kitchen/kitchen.usd"
+      robot_spawn_points:
+        turtlebot: [0.0, 0.0, 0.0]
+        franka: [1.0, 0.0, 0.0]
+        carter: [0.0, 1.0, 0.0]
+        humanoid: [0.0, -1.0, 0.0]
+      object_locations:
+        water_bottle: [2.0, 1.0, 0.8]
+        cup: [2.2, 1.0, 0.8]
+        apple: [2.5, 1.0, 0.8]
+        book: [1.8, 1.0, 0.8]
+        phone: [2.0, 0.8, 0.8]
+      interactive_objects:
+        refrigerator: [3.0, 0.0, 0.0]
+        cabinet: [2.0, 2.0, 0.0]
+        sink: [1.0, 2.0, 0.0]
+        stove: [3.0, 2.0, 0.0]
+  
+  bedroom:
+    ros__parameters:
+      name: "Bedroom Environment"
+      description: "Bedroom with furniture and personal items"
+      usd_path: "/Isaac/Environments/Bedroom/bedroom.usd"
+      robot_spawn_points:
+        turtlebot: [0.0, 0.0, 0.0]
+        franka: [1.0, 0.0, 0.0]
+        carter: [0.0, 1.0, 0.0]
+        humanoid: [0.0, -1.0, 0.0]
+      object_locations:
+        book: [1.5, 0.5, 0.8]
+        phone: [1.0, 0.3, 0.8]
+        lamp: [1.2, 0.0, 0.8]
+        glasses: [1.1, 0.2, 0.8]
+        remote: [1.3, 0.1, 0.8]
+      interactive_objects:
+        bedside_lamp: [1.2, 0.0, 0.0]
+        window: [2.0, 0.0, 0.0]
+        closet: [0.0, 2.0, 0.0]
+        door: [0.0, 0.0, 0.0]
+  
+  living_room:
+    ros__parameters:
+      name: "Living Room Environment"
+      description: "Living room with seating and entertainment"
+      usd_path: "/Isaac/Environments/LivingRoom/living_room.usd"
+      robot_spawn_points:
+        turtlebot: [0.0, 0.0, 0.0]
+        franka: [1.0, 0.0, 0.0]
+        carter: [0.0, 1.0, 0.0]
+        humanoid: [0.0, -1.0, 0.0]
+      object_locations:
+        remote: [1.5, 0.5, 0.8]
+        book: [1.8, 0.5, 0.8]
+        magazine: [1.6, 0.5, 0.8]
+        drink: [1.4, 0.5, 0.8]
+        blanket: [1.2, 0.5, 0.8]
+      interactive_objects:
+        tv: [2.0, 0.0, 0.0]
+        couch: [1.0, 0.0, 0.0]
+        coffee_table: [1.5, 0.0, 0.0]
+        lamp: [1.8, 0.0, 0.0]
+  
+  office:
+    ros__parameters:
+      name: "Office Environment"
+      description: "Office with desk and work equipment"
+      usd_path: "/Isaac/Environments/Office/office.usd"
+      robot_spawn_points:
+        turtlebot: [0.0, 0.0, 0.0]
+        franka: [1.0, 0.0, 0.0]
+        carter: [0.0, 1.0, 0.0]
+        humanoid: [0.0, -1.0, 0.0]
+      object_locations:
+        pen: [1.5, 0.5, 0.8]
+        paper: [1.6, 0.5, 0.8]
+        stapler: [1.4, 0.5, 0.8]
+        coffee: [1.7, 0.5, 0.8]
+        phone: [1.3, 0.5, 0.8]
+      interactive_objects:
+        desk: [1.5, 0.0, 0.0]
+        chair: [1.5, 0.5, 0.0]
+        computer: [1.5, 0.0, 0.8]
+        printer: [2.0, 0.0, 0.0]
+
+# Robot Configurations
+robots:
+  turtlebot:
+    ros__parameters:
+      name: "TurtleBot"
+      description: "Mobile robot for navigation and basic manipulation"
+      usd_path: "/Isaac/Robots/Turtlebot/turtlebot.usd"
+      capabilities:
+        - "navigation"
+        - "basic_manipulation"
+        - "object_detection"
+      sensors:
+        - "camera"
+        - "lidar"
+        - "odometry"
+      control_topics:
+        cmd_vel: "/turtlebot/cmd_vel"
+        odom: "/turtlebot/odom"
+        camera: "/turtlebot/camera/image_raw"
+        lidar: "/turtlebot/scan"
+  
+  franka:
+    ros__parameters:
+      name: "Franka Emika Panda"
+      description: "Collaborative robot arm for precise manipulation"
+      usd_path: "/Isaac/Robots/Franka/franka.usd"
+      capabilities:
+        - "precise_manipulation"
+        - "gripper_control"
+        - "force_sensing"
+      sensors:
+        - "joint_states"
+        - "force_torque"
+        - "camera"
+      control_topics:
+        joint_commands: "/franka/joint_commands"
+        joint_states: "/franka/joint_states"
+        gripper: "/franka/gripper"
+        camera: "/franka/camera/image_raw"
+  
+  carter:
+    ros__parameters:
+      name: "Carter"
+      description: "Mobile manipulator with integrated arm"
+      usd_path: "/Isaac/Robots/Carter/carter.usd"
+      capabilities:
+        - "navigation"
+        - "manipulation"
+        - "object_detection"
+        - "speech_interaction"
+      sensors:
+        - "camera"
+        - "lidar"
+        - "joint_states"
+        - "microphone"
+      control_topics:
+        cmd_vel: "/carter/cmd_vel"
+        odom: "/carter/odom"
+        joint_commands: "/carter/joint_commands"
+        camera: "/carter/camera/image_raw"
+        lidar: "/carter/scan"
+  
+  humanoid:
+    ros__parameters:
+      name: "Humanoid Robot"
+      description: "Humanoid robot for human-like interaction"
+      usd_path: "/Isaac/Robots/Humanoid/humanoid.usd"
+      capabilities:
+        - "bipedal_walking"
+        - "humanoid_manipulation"
+        - "gesture_recognition"
+        - "speech_interaction"
+      sensors:
+        - "camera"
+        - "joint_states"
+        - "force_sensors"
+        - "microphone"
+      control_topics:
+        joint_commands: "/humanoid/joint_commands"
+        joint_states: "/humanoid/joint_states"
+        camera: "/humanoid/camera/image_raw"
+        speech: "/humanoid/speech"
+
+# Demo Scenarios
+demo_scenarios:
+  kitchen_demo:
+    ros__parameters:
+      name: "Kitchen Assistance Demo"
+      description: "Demonstrates kitchen assistance tasks"
+      scenarios:
+        - "I'm thirsty, bring me a glass of water"
+        - "Open the refrigerator"
+        - "Pick up the apple from the counter"
+        - "Move to the dining table"
+        - "Close the cabinet door"
+        - "Turn on the stove"
+        - "Put the cup in the sink"
+      expected_duration: 300.0
+      difficulty: "intermediate"
+  
+  bedroom_demo:
+    ros__parameters:
+      name: "Bedroom Assistance Demo"
+      description: "Demonstrates bedroom assistance tasks"
+      scenarios:
+        - "Turn on the bedside lamp"
+        - "Bring me my book from the shelf"
+        - "Open the window"
+        - "Pick up my phone from the nightstand"
+        - "Close the bedroom door"
+        - "Adjust the blinds"
+        - "Bring me my glasses"
+      expected_duration: 240.0
+      difficulty: "beginner"
+  
+  living_room_demo:
+    ros__parameters:
+      name: "Living Room Assistance Demo"
+      description: "Demonstrates living room assistance tasks"
+      scenarios:
+        - "Turn on the TV"
+        - "Bring me the remote control"
+        - "Pick up my book from the coffee table"
+        - "Turn on the lamp"
+        - "Bring me a drink"
+        - "Close the curtains"
+        - "Adjust the thermostat"
+      expected_duration: 280.0
+      difficulty: "intermediate"
+  
+  office_demo:
+    ros__parameters:
+      name: "Office Assistance Demo"
+      description: "Demonstrates office assistance tasks"
+      scenarios:
+        - "Bring me a pen from the desk"
+        - "Print the document"
+        - "Turn on the computer"
+        - "Bring me a coffee"
+        - "Organize the papers"
+        - "Adjust the chair"
+        - "Turn on the desk lamp"
+      expected_duration: 320.0
+      difficulty: "advanced"
+
+# Pipeline Configuration
+pipeline:
+  ros__parameters:
+    # LLM Configuration
+    llm:
+      provider: "openai"  # openai, gemini, anthropic
+      model: "gpt-4"
+      temperature: 0.7
+      max_tokens: 150
+      enable_context_memory: true
+      context_file: "/tmp/fernassist_context.json"
+    
+    # Object Detection Configuration
+    object_detection:
+      model: "yolov8n.pt"
+      confidence_threshold: 0.5
+      enable_tracking: true
+      enable_depth_estimation: true
+      detection_mode: "rgb_depth"
+    
+    # ROS Bridge Configuration
+    ros_bridge:
+      enable_velocity_control: true
+      enable_joint_control: true
+      enable_gripper_control: true
+      safety_limits:
+        max_velocity: 1.0
+        max_acceleration: 2.0
+        emergency_stop: true
+    
+    # Feedback Configuration
+    feedback:
+      enable_tts: true
+      enable_visual_feedback: true
+      enable_aac_feedback: true
+      tts_provider: "pyttsx3"
+
+# Performance Monitoring
+performance:
+  ros__parameters:
+    # Monitoring settings
+    enable_monitoring: true
+    monitoring_interval: 1.0
+    log_performance_metrics: true
+    
+    # Performance thresholds
+    max_processing_time: 5.0
+    max_memory_usage: 2048  # MB
+    max_cpu_usage: 80.0  # Percentage
+    
+    # Metrics to track
+    metrics:
+      - "pipeline_processing_time"
+      - "llm_response_time"
+      - "object_detection_fps"
+      - "ros_bridge_latency"
+      - "memory_usage"
+      - "cpu_usage"
+      - "simulation_fps"
+
+# Logging and Recording
+logging:
+  ros__parameters:
+    # Logging settings
+    enable_logging: true
+    log_level: "INFO"
+    log_format: "detailed"
+    
+    # File logging
+    log_directory: "demo/logs"
+    log_file_prefix: "fernassist_sim"
+    max_log_files: 10
+    max_log_size: 100  # MB
+    
+    # Screenshot settings
+    enable_screenshots: true
+    screenshot_interval: 5.0
+    screenshot_format: "png"
+    screenshot_quality: 90
+    screenshot_resolution: [1920, 1080]
+    
+    # Video recording
+    enable_video_recording: false
+    video_format: "mp4"
+    video_fps: 30
+    video_quality: "high"
+    video_codec: "h264"
+    
+    # Demo report
+    enable_demo_report: true
+    report_format: "markdown"
+    include_screenshots: true
+    include_performance_metrics: true 

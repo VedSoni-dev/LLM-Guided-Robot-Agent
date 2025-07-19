@@ -1,0 +1,11 @@
+# ProcessAAC Service
+# Request AAC input processing and get back interpreted intent
+
+string aac_text              # AAC input text to process
+string input_type            # Type of AAC input
+float32 confidence           # Confidence of the input
+---
+string intent                # Processed intent
+float32 confidence          # Confidence of the interpretation
+bool success                 # Whether processing was successful
+string error_message         # Error message if processing failed 

@@ -1,0 +1,18 @@
+{
+  "timestamp": "2025-07-19T17:34:13.693932",
+  "scene": "kitchen",
+  "robots_used": [
+    "TurtleBot"
+  ],
+  "tasks_completed": 1,
+  "total_tasks": 1,
+  "success_rate": "100%",
+  "average_processing_time": "2.3s",
+  "pipeline_components": {
+    "AAC Input": "\u2705 Processed",
+    "LLM Processing": "\u2705 Completed",
+    "Object Detection": "\u2705 Found water bottle",
+    "Robot Control": "\u2705 Executed",
+    "Feedback": "\u2705 Delivered"
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "kitchen": {
+    "name": "Kitchen Assistance",
+    "description": "Help with kitchen tasks and object manipulation",
+    "robots": [
+      "TurtleBot",
+      "Franka"
+    ],
+    "tasks": [
+      "I'm thirsty, bring me a glass of water",
+      "Open the refrigerator",
+      "Pick up the apple from the counter",
+      "Move to the dining table",
+      "Close the cabinet door"
+    ],
+    "expected_duration": "5 minutes",
+    "difficulty": "Intermediate"
+  },
+  "bedroom": {
+    "name": "Bedroom Assistance",
+    "description": "Help with personal care and room management",
+    "robots": [
+      "Carter"
+    ],
+    "tasks": [
+      "Turn on the bedside lamp",
+      "Bring me my book from the shelf",
+      "Open the window",
+      "Pick up my phone from the nightstand",
+      "Close the bedroom door"
+    ],
+    "expected_duration": "4 minutes",
+    "difficulty": "Beginner"
+  },
+  "living_room": {
+    "name": "Living Room Assistance",
+    "description": "Help with entertainment and comfort",
+    "robots": [
+      "TurtleBot",
+      "Humanoid"
+    ],
+    "tasks": [
+      "Turn on the TV",
+      "Bring me the remote control",
+      "Pick up my book from the coffee table",
+      "Turn on the lamp",
+      "Bring me a drink"
+    ],
+    "expected_duration": "5 minutes",
+    "difficulty": "Intermediate"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "TurtleBot": {
+    "type": "Mobile Robot",
+    "capabilities": [
+      "Navigation",
+      "Basic Manipulation",
+      "Object Detection"
+    ],
+    "sensors": [
+      "Camera",
+      "LiDAR",
+      "Odometry"
+    ],
+    "status": "\u2705 Configured"
+  },
+  "Franka Emika": {
+    "type": "Collaborative Arm",
+    "capabilities": [
+      "Precise Manipulation",
+      "Gripper Control",
+      "Force Sensing"
+    ],
+    "sensors": [
+      "Joint States",
+      "Force Torque",
+      "Camera"
+    ],
+    "status": "\u2705 Configured"
+  },
+  "Carter": {
+    "type": "Mobile Manipulator",
+    "capabilities": [
+      "Navigation",
+      "Manipulation",
+      "Speech Interaction"
+    ],
+    "sensors": [
+      "Camera",
+      "LiDAR",
+      "Microphone"
+    ],
+    "status": "\u2705 Configured"
+  },
+  "Humanoid": {
+    "type": "Humanoid Robot",
+    "capabilities": [
+      "Bipedal Walking",
+      "Human-like Interaction",
+      "Gesture Recognition"
+    ],
+    "sensors": [
+      "Camera",
+      "Force Sensors",
+      "Microphone"
+    ],
+    "status": "\u2705 Configured"
+  }
+}

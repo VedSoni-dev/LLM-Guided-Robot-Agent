@@ -1,0 +1,68 @@
+# FernAssist Python Dependencies
+
+# ROS 2 Python bindings
+rclpy>=0.10.0
+std_msgs>=4.2.0
+geometry_msgs>=4.2.0
+sensor_msgs>=4.2.0
+nav_msgs>=4.2.0
+tf2_ros>=0.27.0
+tf2_geometry_msgs>=0.27.0
+
+# LLM and AI dependencies
+openai>=1.0.0
+google-generativeai>=0.3.0
+anthropic>=0.7.0
+transformers>=4.30.0
+torch>=2.0.0
+numpy>=1.24.0
+
+# Computer Vision and Object Detection
+ultralytics>=8.0.0  # YOLOv8
+opencv-python>=4.8.0
+opencv-contrib-python>=4.8.0
+Pillow>=10.0.0
+scikit-image>=0.21.0
+
+# Text-to-Speech and Audio
+pyttsx3>=2.90  # Offline TTS
+gtts>=2.3.2    # Google TTS
+pygame>=2.5.0  # Audio playback
+pydub>=0.25.1  # Audio processing
+sounddevice>=0.4.6  # Audio I/O
+
+# Isaac Sim dependencies
+# Note: Isaac Sim is typically installed separately via Omniverse Launcher
+# These packages are for development and testing
+omni-isaac-sim>=2023.1.0
+omni-kit>=2023.1.0
+omni-physics>=2023.1.0
+omni.replicator>=1.0.0
+omni.isaac.core>=2023.1.0
+omni.isaac.ui>=2023.1.0
+omni.isaac.ros_bridge>=2023.1.0
+
+# Communication and networking
+requests>=2.31.0
+websocket-client>=1.6.0
+paho-mqtt>=1.6.0
+
+# Data processing
+pandas>=2.0.0
+scikit-learn>=1.3.0
+
+# Utilities
+python-dotenv>=1.0.0
+pyyaml>=6.0
+jsonschema>=4.19.0
+pydantic>=2.0.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+pytest-mock>=3.11.0
+
+# Development tools
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0 

@@ -1,0 +1,12 @@
+{
+  "scene": "kitchen",
+  "robots": [
+    "turtlebot"
+  ],
+  "duration": 30,
+  "tasks": [
+    "I'm thirsty, bring me a glass of water"
+  ],
+  "screenshots": true,
+  "video": false
+}

@@ -1,0 +1,105 @@
+# Isaac Sim Bridge Configuration for FernAssist
+
+# Bridge Configuration
+isaac_sim_bridge:
+  ros__parameters:
+    simulation_rate: 60.0
+    enable_isaac_sim: true
+    isaac_sim_host: "localhost"
+    isaac_sim_port: 11311
+
+# Robot Configurations
+robots:
+  # Carter Mobile Robot
+  carter:
+    ros__parameters:
+      name: "carter"
+      type: "mobile_base"
+      namespace: "carter"
+      base_frame: "carter_base_link"
+      odom_frame: "carter_odom"
+      map_frame: "map"
+      cmd_vel_topic: "cmd_vel"
+      odom_topic: "odom"
+      joint_states_topic: "joint_states"
+      laser_scan_topic: "scan"
+      camera_topic: "camera/image_raw"
+      enable_lidar: true
+      enable_camera: true
+      enable_manipulation: false
+      max_linear_velocity: 2.0
+      max_angular_velocity: 1.0
+      safety_timeout: 5.0
+
+  # Franka Manipulator
+  franka:
+    ros__parameters:
+      name: "franka"
+      type: "manipulator"
+      namespace: "franka"
+      base_frame: "franka_base_link"
+      odom_frame: "franka_base_link"
+      map_frame: "map"
+      cmd_vel_topic: "cmd_vel"
+      odom_topic: "odom"
+      joint_states_topic: "joint_states"
+      laser_scan_topic: "scan"
+      camera_topic: "camera/image_raw"
+      enable_lidar: false
+      enable_camera: true
+      enable_manipulation: true
+      max_linear_velocity: 1.0
+      max_angular_velocity: 0.5
+      safety_timeout: 5.0
+
+  # Humanoid Robot
+  humanoid:
+    ros__parameters:
+      name: "humanoid"
+      type: "humanoid"
+      namespace: "humanoid"
+      base_frame: "humanoid_base_link"
+      odom_frame: "humanoid_base_link"
+      map_frame: "map"
+      cmd_vel_topic: "cmd_vel"
+      odom_topic: "odom"
+      joint_states_topic: "joint_states"
+      laser_scan_topic: "scan"
+      camera_topic: "camera/image_raw"
+      enable_lidar: false
+      enable_camera: true
+      enable_manipulation: true
+      max_linear_velocity: 1.5
+      max_angular_velocity: 0.8
+      safety_timeout: 5.0
+
+# Isaac Sim Environment Configuration
+isaac_sim:
+  ros__parameters:
+    # Environment settings
+    environment: "warehouse"  # warehouse, office, home, custom
+    lighting: "dynamic"       # static, dynamic, realistic
+    physics_engine: "physx"   # physx, bullet
+    
+    # Simulation settings
+    time_step: 0.016667       # 60 Hz simulation
+    max_substeps: 10
+    gravity: [0.0, 0.0, -9.81]
+    
+    # Rendering settings
+    enable_rendering: true
+    resolution: [1920, 1080]
+    enable_shadows: true
+    enable_raytracing: false
+    
+    # Robot spawn settings
+    robot_spawn_positions:
+      carter: [0.0, 0.0, 0.0]
+      franka: [2.0, 0.0, 0.0]
+      humanoid: [4.0, 0.0, 0.0]
+    
+    # Sensor settings
+    lidar_range: 10.0
+    lidar_fov: 270.0
+    camera_resolution: [640, 480]
+    camera_fov: 60.0 

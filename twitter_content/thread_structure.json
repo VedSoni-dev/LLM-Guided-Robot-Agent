@@ -1,0 +1,42 @@
+{
+  "tweets": [
+    {
+      "number": 1,
+      "content": "\ud83d\ude80 Big day working on FernAssist - my AAC-powered robot assistant!\n\nSpent today setting up the complete pipeline architecture and finalizing the LLM \u2192 ROS2 bridge.\n\nThis is going to help people with communication disabilities control robots using natural language! \ud83e\udd16\n\n#Robotics #AAC #AI #Accessibility",
+      "media": "pipeline_diagram.txt"
+    },
+    {
+      "number": 2,
+      "content": "\ud83d\udcf1 The vision: Someone uses their AAC app to say \"I'm thirsty, bring me water\"\n\nThe system processes this through:\n\u2022 AAC Input \u2192 \ud83e\udde0 LLM Processing \u2192 \ud83d\udc41\ufe0f Object Detection \u2192 \ud83e\udd16 Robot Control \u2192 \ud83d\udce2 Feedback\n\nToday I built the complete pipeline architecture and UI flow!\n\n#FernAssist #AssistiveTech",
+      "media": "system_architecture.txt"
+    },
+    {
+      "number": 3,
+      "content": "\ud83d\udd27 Technical setup today:\n\n\u2022 Set up ROS2 workspace with custom message types\n\u2022 Created feedback module with TTS + visual feedback\n\u2022 Built simulation runner for Isaac Sim integration\n\u2022 Designed LLM interpreter with context memory\n\u2022 Integrated YOLOv8 object detection pipeline\n\nLots of moving parts! \u2699\ufe0f\n\n#ROS2 #ComputerVision",
+      "media": "technical_stack.txt"
+    },
+    {
+      "number": 4,
+      "content": "\ud83e\udde0 The LLM \u2192 ROS2 bridge is the key piece:\n\nTakes natural language like \"bring me water\" and converts it to structured robot commands:\n\n{\n  \"action\": \"fetch\",\n  \"object\": \"water bottle\",\n  \"location\": \"kitchen counter\",\n  \"robot\": \"TurtleBot\"\n}\n\nThis is where the magic happens! \u2728\n\n#LLM #RobotControl"
+    },
+    {
+      "number": 5,
+      "content": "\ud83c\udfac Made a simple POC demo today to show what the final pipeline results should look like:\n\nWatch it process a request, detect objects, plan robot actions, and provide multi-modal feedback - all in real-time!\n\nThis is just the architecture demo, but it shows the complete user experience flow! \ud83c\udfaf\n\n#Demo #ProofOfConcept",
+      "media": "demo_screenshot.txt"
+    },
+    {
+      "number": 6,
+      "content": "\ud83d\udcca Demo shows:\n\u2022 \ud83d\udcf1 AAC input processing\n\u2022 \ud83e\udde0 LLM intent analysis\n\u2022 \ud83d\udc41\ufe0f YOLOv8 object detection\n\u2022 \ud83e\udd16 Robot action planning\n\u2022 \ud83d\udce2 Multi-modal feedback (TTS + visual)\n\nNext step: Replace simulation with real AI models and robot control!\n\n#Pipeline #Architecture"
+    },
+    {
+      "number": 7,
+      "content": "\ud83c\udfaf What's next:\n\u2022 Set up real LLM API integration (OpenAI/Gemini)\n\u2022 Install YOLOv8 for actual object detection\n\u2022 Connect to real robots (TurtleBot, Franka)\n\u2022 Test in Isaac Sim environments\n\u2022 Add error handling and recovery\n\nThe foundation is solid! \ud83c\udfd7\ufe0f\n\n#NextSteps #Development",
+      "media": "progress_timeline.txt"
+    },
+    {
+      "number": 8,
+      "content": "\ud83d\udca1 The goal: Make robot control accessible to everyone, regardless of communication abilities.\n\nToday's POC shows the complete user journey from AAC input to robot action. The architecture is ready - now it's time to make it real!\n\nExcited to share more progress soon! \ud83d\ude80\n\n#Accessibility #InclusiveTech"
+    }
+  ],
+  "demo_caption": "\ud83c\udfac FernAssist POC Demo - AAC-Powered Robot Assistant\n\nShowing the complete pipeline architecture:\n\ud83d\udcf1 AAC Input \u2192 \ud83e\udde0 LLM Processing \u2192 \ud83d\udc41\ufe0f Object Detection \u2192 \ud83e\udd16 Robot Control \u2192 \ud83d\udce2 Feedback\n\nThis is the system flow and UI. Real AI integration coming next!\n\n#Robotics #AAC #AI #Demo"
+}

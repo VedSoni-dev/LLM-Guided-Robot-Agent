@@ -1,0 +1,155 @@
+# Object Detection Configuration for FernAssist
+
+# Object Detector Configuration
+object_detector:
+  ros__parameters:
+    # YOLOv8 Model Configuration
+    model_path: "yolov8n.pt"  # yolov8n, yolov8s, yolov8m, yolov8l, yolov8x
+    confidence_threshold: 0.5
+    nms_threshold: 0.4
+    max_detections: 50
+    
+    # Detection Mode
+    detection_mode: "rgb_only"  # rgb_only, rgb_depth, rgb_lidar
+    
+    # Features
+    enable_tracking: true
+    enable_depth_estimation: false
+    publish_visualization: true
+    save_detections: false
+    detection_history_size: 100
+    
+    # Camera Configuration
+    camera_fov: 60.0
+    camera_resolution: [640, 480]
+    
+    # Camera Topics (can be overridden per robot)
+    camera_topic: "/carter/camera/image_raw"
+    depth_topic: "/carter/camera/depth"
+    camera_info_topic: "/carter/camera/camera_info"
+    
+    # Detection Topics
+    detection_topic: "/fernassist/object_detections"
+    visualization_topic: "/fernassist/detection_visualization"
+    detection_image_topic: "/fernassist/detection_image"
+
+# Robot-specific camera configurations
+robots:
+  carter:
+    ros__parameters:
+      camera_topic: "/carter/camera/image_raw"
+      depth_topic: "/carter/camera/depth"
+      camera_info_topic: "/carter/camera/camera_info"
+      enable_depth_estimation: true
+  
+  franka:
+    ros__parameters:
+      camera_topic: "/franka/camera/image_raw"
+      depth_topic: "/franka/camera/depth"
+      camera_info_topic: "/franka/camera/camera_info"
+      enable_depth_estimation: true
+  
+  humanoid:
+    ros__parameters:
+      camera_topic: "/humanoid/camera/image_raw"
+      depth_topic: "/humanoid/camera/depth"
+      camera_info_topic: "/humanoid/camera/camera_info"
+      enable_depth_estimation: false
+
+# YOLOv8 Model Performance Settings
+model_performance:
+  ros__parameters:
+    # Inference settings
+    device: "auto"  # auto, cpu, 0, 1, 2, etc.
+    half_precision: false
+    optimize_for_speed: true
+    
+    # Model variants (trade-off between speed and accuracy)
+    # yolov8n.pt - fastest, lowest accuracy
+    # yolov8s.pt - small, balanced
+    # yolov8m.pt - medium, good accuracy
+    # yolov8l.pt - large, high accuracy
+    # yolov8x.pt - extra large, highest accuracy
+    
+    # Custom model settings
+    custom_classes: []  # List of custom class names
+    custom_weights: ""  # Path to custom trained weights
+
+# Depth Estimation Settings
+depth_estimation:
+  ros__parameters:
+    # Depth camera parameters
+    depth_scale: 1000.0  # Depth image scale factor
+    min_depth: 0.1       # Minimum valid depth (meters)
+    max_depth: 10.0      # Maximum valid depth (meters)
+    
+    # 3D estimation parameters
+    object_size_estimation: true
+    orientation_estimation: false
+    
+    # Depth filtering
+    depth_filter_method: "median"  # median, mean, min
+    depth_filter_kernel: 5
+    
+    # Camera calibration (if not provided via camera_info)
+    default_fx: 525.0  # Focal length X
+    default_fy: 525.0  # Focal length Y
+    default_cx: 319.5  # Principal point X
+    default_cy: 239.5  # Principal point Y
+
+# Object Tracking Settings
+object_tracking:
+  ros__parameters:
+    # Tracking algorithm
+    tracking_method: "iou"  # iou, kalman, deep_sort
+    
+    # IOU tracking parameters
+    iou_threshold: 0.3
+    max_disappeared: 30  # Frames before removing track
+    
+    # Kalman filter parameters (if using kalman tracking)
+    kalman_process_noise: 0.01
+    kalman_measurement_noise: 0.1
+    
+    # Track management
+    min_track_length: 5
+    max_track_age: 100
+
+# Visualization Settings
+visualization:
+  ros__parameters:
+    # Marker visualization
+    show_3d_markers: true
+    marker_lifetime: 1.0
+    marker_scale: 0.1
+    
+    # Image visualization
+    show_bounding_boxes: true
+    show_labels: true
+    show_confidence: true
+    show_track_ids: true
+    show_3d_positions: true
+    
+    # Color settings
+    confidence_color_map: true  # Color by confidence
+    class_color_map: false      # Color by class
+    
+    # Text settings
+    font_scale: 0.5
+    font_thickness: 2
+    text_color: [0, 255, 0]     # Green text
+
+# Performance Monitoring
+performance:
+  ros__parameters:
+    # Statistics tracking
+    enable_statistics: true
+    statistics_window: 100  # Frames for averaging
+    
+    # Performance thresholds
+    max_processing_time: 0.1  # Seconds
+    min_fps: 10.0
+    
+    # Logging
+    log_detection_stats: true
+    log_performance_warnings: true 

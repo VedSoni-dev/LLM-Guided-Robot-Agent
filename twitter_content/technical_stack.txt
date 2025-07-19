@@ -1,0 +1,11 @@
+
+🔧 Technical Stack:
+┌─────────────────┬─────────────────┬─────────────────┐
+│   🤖 Robotics   │   🧠 AI/ML      │   📱 Interface  │
+├─────────────────┼─────────────────┼─────────────────┤
+│ • ROS2 Humble   │ • OpenAI GPT-4  │ • AAC Apps      │
+│ • Isaac Sim     │ • YOLOv8        │ • Touch UI      │
+│ • TurtleBot     │ • Context Memory│ • Voice Input   │
+│ • Franka Emika  │ • Intent Parsing│ • Switch Access │
+└─────────────────┴─────────────────┴─────────────────┘
+    

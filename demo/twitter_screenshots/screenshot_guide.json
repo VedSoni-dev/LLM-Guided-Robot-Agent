@@ -1,0 +1,38 @@
+{
+  "screenshot_1": {
+    "title": "System Overview",
+    "description": "Show the complete FernAssist architecture",
+    "file": "demo/twitter_screenshots/setup/system_check.json",
+    "caption": "FernAssist system check - all components ready! \ud83d\ude80"
+  },
+  "screenshot_2": {
+    "title": "Pipeline Components",
+    "description": "Show the AAC\u2192LLM\u2192ROS 2 pipeline",
+    "file": "demo/twitter_screenshots/pipeline/components.json",
+    "caption": "Complete pipeline: AAC Input \u2192 LLM Processing \u2192 Robot Control \ud83e\udd16"
+  },
+  "screenshot_3": {
+    "title": "Robot Fleet",
+    "description": "Show supported robot configurations",
+    "file": "demo/twitter_screenshots/robots/configurations.json",
+    "caption": "Multi-robot support: TurtleBot, Franka, Carter, Humanoid \ud83e\udd16\ud83e\udd16\ud83e\udd16\ud83e\udd16"
+  },
+  "screenshot_4": {
+    "title": "Demo Scenarios",
+    "description": "Show different environment scenarios",
+    "file": "demo/twitter_screenshots/scenarios/demo_scenarios.json",
+    "caption": "Real-world scenarios: Kitchen, Bedroom, Living Room \ud83c\udfe0"
+  },
+  "screenshot_5": {
+    "title": "Demo Results",
+    "description": "Show successful demo execution",
+    "file": "demo/twitter_screenshots/results/demo_results.json",
+    "caption": "Demo completed successfully! 100% success rate \ud83c\udf89"
+  },
+  "screenshot_6": {
+    "title": "Progress Summary",
+    "description": "Show overall project progress",
+    "file": "demo/twitter_screenshots/results/twitter_summary.json",
+    "caption": "FernAssist: Complete AAC-powered robot assistant ready! \ud83d\ude80"
+  }
+}

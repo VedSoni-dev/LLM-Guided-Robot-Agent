@@ -1,0 +1,18 @@
+# ExecuteAction Action
+# Goal: Execute a robot action
+# Result: Action completion status
+# Feedback: Progress updates during execution
+
+# Goal
+string action_type            # Type of action to execute
+string parameters             # JSON parameters for the action
+---
+# Result
+bool success                  # Whether action completed successfully
+string status_message         # Status message
+float32 execution_time        # Time taken for execution
+---
+# Feedback
+string current_status         # Current status of execution
+float32 progress              # Progress percentage (0.0-1.0)
+string status_message         # Current status message 

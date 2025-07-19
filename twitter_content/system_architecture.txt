@@ -1,0 +1,20 @@
+
+┌─────────────────────────────────────────────────────────────┐
+│                    FernAssist System                        │
+├─────────────────────────────────────────────────────────────┤
+│  📱 AAC App  │  🧠 LLM API  │  👁️ YOLOv8  │  🤖 ROS2      │
+│              │              │              │               │
+│  • Touch     │  • OpenAI    │  • Object    │  • TurtleBot  │
+│  • Voice     │  • Gemini    │    Detection │  • Franka     │
+│  • Switch    │  • Context   │  • 3D Local  │  • Isaac Sim  │
+│              │    Memory    │    ization   │               │
+└─────────────────────────────────────────────────────────────┘
+                              │
+                    ┌─────────▼─────────┐
+                    │   📢 Feedback     │
+                    │                   │
+                    │ • TTS Speech      │
+                    │ • Visual Markers  │
+                    │ • AAC Updates     │
+                    └───────────────────┘
+    

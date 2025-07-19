@@ -1,0 +1,217 @@
+# Feedback Module Configuration for FernAssist
+
+# Feedback Module Configuration
+feedback_module:
+  ros__parameters:
+    # TTS Configuration
+    tts_provider: "pyttsx3"  # pyttsx3, gtts, espeak, festival
+    tts_voice: "default"
+    tts_rate: 150
+    tts_volume: 0.8
+    enable_tts: true
+    
+    # Visual Feedback Configuration
+    enable_visual_feedback: true
+    visual_duration: 3.0
+    enable_animations: true
+    
+    # Error Handling Configuration
+    enable_error_recovery: true
+    max_retry_attempts: 3
+    error_timeout: 10.0
+    
+    # AAC Integration Configuration
+    aac_feedback_endpoint: "http://localhost:8080/aac/feedback"
+    enable_aac_feedback: true
+    
+    # Logging Configuration
+    enable_feedback_logging: true
+    feedback_log_file: "/tmp/fernassist_feedback.log"
+
+# TTS Provider Settings
+tts_providers:
+  pyttsx3:
+    ros__parameters:
+      # Voice settings
+      available_voices: ["default", "male", "female"]
+      default_voice: "default"
+      
+      # Speech settings
+      default_rate: 150
+      default_volume: 0.8
+      
+      # Quality settings
+      enable_ssml: false
+      enable_emotion: false
+  
+  gtts:
+    ros__parameters:
+      # Language settings
+      language: "en"
+      slow_speech: false
+      
+      # Audio settings
+      audio_format: "mp3"
+      audio_quality: "high"
+      
+      # Network settings
+      timeout: 10.0
+      retry_attempts: 3
+  
+  espeak:
+    ros__parameters:
+      # Voice settings
+      voice: "en"
+      variant: "default"
+      
+      # Speech settings
+      speed: 150
+      pitch: 50
+      volume: 100
+      
+      # Output settings
+      output_format: "wav"
+      sample_rate: 22050
+
+# Visual Feedback Settings
+visual_feedback:
+  ros__parameters:
+    # Display settings
+    enable_3d_markers: true
+    marker_lifetime: 3.0
+    marker_scale: 0.1
+    
+    # Icon settings
+    icon_size: 0.2
+    icon_color_map: true
+    
+    # Animation settings
+    enable_fade_in: true
+    enable_fade_out: true
+    animation_duration: 0.5
+    
+    # Color schemes
+    colors:
+      success: [0.0, 1.0, 0.0]  # Green
+      error: [1.0, 0.0, 0.0]    # Red
+      warning: [1.0, 1.0, 0.0]  # Yellow
+      info: [0.0, 0.0, 1.0]     # Blue
+      progress: [0.0, 1.0, 1.0] # Cyan
+      confirmation: [0.0, 1.0, 0.0] # Green
+
+# Error Handling Settings
+error_handling:
+  ros__parameters:
+    # Error recovery
+    enable_auto_recovery: true
+    max_retry_attempts: 3
+    retry_delay: 2.0
+    
+    # Error classification
+    error_severity_levels:
+      critical: ["SYSTEM_FAILURE", "HARDWARE_ERROR"]
+      error: ["OBJECT_NOT_FOUND", "PATH_BLOCKED", "GRIPPER_FAILED"]
+      warning: ["BATTERY_LOW", "SENSOR_WARNING"]
+      info: ["STATUS_UPDATE", "PROGRESS_INFO"]
+    
+    # Error messages
+    error_messages:
+      OBJECT_NOT_FOUND: "I couldn't find the object you requested"
+      PATH_BLOCKED: "The path is blocked, I cannot move there"
+      GRIPPER_FAILED: "I couldn't pick up the object"
+      MOTION_FAILED: "I couldn't complete the movement"
+      SENSOR_ERROR: "There's a problem with my sensors"
+      BATTERY_LOW: "My battery is getting low"
+      NETWORK_ERROR: "I'm having trouble connecting"
+      PERMISSION_DENIED: "I don't have permission to do that"
+      TIMEOUT: "The operation took too long"
+      UNKNOWN_ERROR: "Something went wrong, please try again"
+    
+    # Recovery strategies
+    recovery_strategies:
+      OBJECT_NOT_FOUND:
+        - "Search in nearby areas"
+        - "Ask user for clarification"
+        - "Suggest alternatives"
+      PATH_BLOCKED:
+        - "Find alternative route"
+        - "Ask user to clear path"
+        - "Wait for path to clear"
+      GRIPPER_FAILED:
+        - "Retry with different approach"
+        - "Check object size and weight"
+        - "Ask for manual assistance"
+
+# AAC Integration Settings
+aac_integration:
+  ros__parameters:
+    # Communication settings
+    endpoint: "http://localhost:8080/aac/feedback"
+    timeout: 5.0
+    retry_attempts: 3
+    
+    # Feedback types
+    supported_feedback_types:
+      - "visual"
+      - "audio"
+      - "haptic"
+      - "text"
+    
+    # Message format
+    message_format: "json"
+    include_timestamp: true
+    include_priority: true
+    
+    # Visual feedback settings
+    visual_feedback:
+      icon_size: "medium"
+      animation_duration: 2.0
+      color_scheme: "accessible"
+      
+    # Audio feedback settings
+    audio_feedback:
+      volume: 0.7
+      duration: 3.0
+      enable_vibration: true
+
+# User Preferences
+user_preferences:
+  ros__parameters:
+    # Accessibility settings
+    enable_high_contrast: false
+    enable_large_text: false
+    enable_screen_reader: false
+    
+    # Language settings
+    preferred_language: "en"
+    enable_multilingual: false
+    
+    # Feedback preferences
+    preferred_feedback_mode: "multimodal"  # audio, visual, multimodal
+    feedback_volume: 0.8
+    feedback_duration: 3.0
+    
+    # Error handling preferences
+    enable_detailed_errors: true
+    enable_suggestions: true
+    enable_auto_retry: true
+
+# Performance Settings
+performance:
+  ros__parameters:
+    # Processing settings
+    max_queue_size: 100
+    processing_timeout: 5.0
+    
+    # Memory management
+    max_history_size: 1000
+    cleanup_interval: 60.0
+    
+    # Logging settings
+    log_level: "INFO"
+    enable_performance_monitoring: true
+    
+    # Caching settings
+    enable_tts_cache: true
+    tts_cache_size: 50
+    cache_expiry: 3600.0 
